@@ -1,0 +1,30 @@
+{
+  "name": "lies-discord-bot",
+  "version": "1.0.0",
+  "description": "A discord bot to draw lane, champions, and players",
+  "main": "App.js",
+  "scripts": {
+    "build": "npx tsc",
+    "start": "npm run build && node build/App.js",
+    "register": "npm run build && node build/RegisterCommands.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/breno-hof/lies-discord-bot.git"
+  },
+  "author": "@breno-hof",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/breno-hof/lies-discord-bot/issues"
+  },
+  "homepage": "https://github.com/breno-hof/lies-discord-bot#readme",
+  "devDependencies": {
+    "@types/node": "^20.12.5",
+    "typescript": "^5.4.4"
+  },
+  "dependencies": {
+    "discord.js": "^14.12.1",
+    "dotenv": "^16.4.5"
+  }
+}

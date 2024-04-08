@@ -1,2 +1,2 @@
 # lies-discord-bot
- A discord bot to draw lane, champions, and players
+ A discord bot to draw league of legends's lane, champions, and players
