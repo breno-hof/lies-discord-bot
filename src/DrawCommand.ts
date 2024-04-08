@@ -45,18 +45,22 @@ export class DrawSlashCommand implements ISlashCommand {
 
         if (!champions) return 'An error has ocurred.';
 
-        const shuffledChampions = ApplicationUtils.shuffle(Array.from(champions));
+        const shuffledChampions = ApplicationUtils.shuffle(champions);
         const roles = ApplicationUtils.shuffle(['Top', 'Jungle', 'Mid', 'Bottom', 'Support']);
 
         const [user1, user2, user3, user4, user5] = interaction.options.data;
 
-        let text = `${user1.value}: (${shuffledChampions.shift()}, ${roles.shift()})\n`;
+        let text = `${this.getPlayer(user1.value, interaction)}'ll play ${shuffledChampions.shift()} as ${roles.shift()}\n`;
 
-        if (user2) text += (`${user2.value}: (${shuffledChampions.shift()}, ${roles.shift()})\n`);
-        if (user3) text += (`${user3.value}: (${shuffledChampions.shift()}, ${roles.shift()})\n`);
-        if (user4) text += (`${user4.value}: (${shuffledChampions.shift()}, ${roles.shift()})\n`);
-        if (user5) text += (`${user5.value}: (${shuffledChampions.shift()}, ${roles.shift()})`);
+        if (user2) text += (`${this.getPlayer(user2.value, interaction)}'ll play ${shuffledChampions.shift()} as ${roles.shift()}\n`);
+        if (user3) text += (`${this.getPlayer(user3.value, interaction)}'ll play ${shuffledChampions.shift()} as ${roles.shift()}\n`);
+        if (user4) text += (`${this.getPlayer(user4.value, interaction)}'ll play ${shuffledChampions.shift()} as ${roles.shift()}\n`);
+        if (user5) text += (`${this.getPlayer(user5.value, interaction)}'ll play ${shuffledChampions.shift()} as ${roles.shift()}`);
 
         return text;
+    }
+
+    private getPlayer(value: any, interaction: ChatInputCommandInteraction) {
+        return interaction.guild?.members.cache.get(value)
     }
 }

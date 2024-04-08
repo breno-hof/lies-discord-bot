@@ -14,7 +14,7 @@ export class HandleInteractions {
         const command = this.commands.get(interaction.commandName);
 
         if (command) {
-            await command.execute(interaction);
+            await interaction.reply(await command.execute(interaction));
         }
     }
 }
